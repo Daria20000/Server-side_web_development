@@ -39,6 +39,6 @@
         <img src="src/logo.svg" alt="Логотип МосПолитех" />
     </div>
     <div class="header-title">
-        Лабораторная работа №2.1<br>Hello, World!
+        Лабораторная работа №4.1<br>Feedback form
     </div>
 </header>
