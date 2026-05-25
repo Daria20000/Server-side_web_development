@@ -1,6 +1,7 @@
 <?php include __DIR__ . '/../main/header.php'; ?>
 
-<h1><?= $article['name'] ?></h1>
-<p><?= $article['text'] ?></p>
+<h2><?= $article->getName() ?></h2>
+<p><?= $article->getText() ?></p>
+<p>Автор статьи: <?= $users->getName() ?></p>
 
 <?php include __DIR__ . '/../main/footer.php'; ?>

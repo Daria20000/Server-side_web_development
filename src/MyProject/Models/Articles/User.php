@@ -5,17 +5,20 @@ namespace MyProject\Models\Articles;
 // use MyProject\Models\Users\User;
 
 
-class Article
+class User
 {
     private $id;
-    private $name;
-    private $text;
-    private $author_id;
+    private $nickname;
+    private $email;
+    private $is_confirmed;
+    private $role;
+    private $password_hash;
+    private $auth_token;
     private $created_at;
 
-    public function __set($name, $value)
+    public function __set($nickname, $value)
     {
-        $camelCaseName = $this->underscoreToCamelCase($name);
+        $camelCaseName = $this->underscoreToCamelCase($nickname);
         $this->$camelCaseName = $value;
     }
 
@@ -26,17 +29,12 @@ class Article
 
     public function getName(): string
     {
-        return $this->name;
+        return $this->nickname;
     }
 
-    public function getText(): string
+    public function getEmail(): string
     {
-        return $this->text;
-    }
-
-    public function getAuthorId(): int
-    {
-        return $this->author_id;
+        return $this->email;
     }
 
     private function underscoreToCamelCase(string $source): string
