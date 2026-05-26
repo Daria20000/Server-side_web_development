@@ -2,8 +2,6 @@
 
 namespace MyProject\Models\Articles;
 
-// use MyProject\Models\Users\User;
-
 
 class User
 {
