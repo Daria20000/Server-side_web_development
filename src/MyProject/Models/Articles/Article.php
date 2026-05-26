@@ -9,10 +9,10 @@ use MyProject\Models\Users\User;
 
 class Article extends ActiveRecordEntity
 {
-    private $name;
-    private $text;
-    private $author_id;
-    private $created_at;
+    protected $name;
+    protected $text;
+    protected $author_id;
+    protected $created_at;
 
     public function getName(): string
     {
@@ -27,6 +27,16 @@ class Article extends ActiveRecordEntity
     public function getAuthorId(): int
     {
         return $this->author_id;
+    }
+
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function setText(string $text)
+    {
+        $this->text = $text;
     }
 
     protected static function getTableName(): string
