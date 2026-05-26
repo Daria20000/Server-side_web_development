@@ -2,27 +2,13 @@
 
 namespace MyProject\Controllers;
 
-use MyProject\Models\Articles\Article;
-use MyProject\Services\Db;
+use MyProject\Models\Users\User;
+use MyProject\Models\Cards\Card;
 use MyProject\View\View;
 
 class MainController
 {
     private $view;
-    private $db;
-
-    // public function __construct()
-    // {
-    //     $this->view = new View(__DIR__ . '/../../../templates');
-    //     $this->db = new Db();
-    // }
-
-    // public function main()
-    // {
-    //     $articles = $this->db->query('SELECT * FROM `articles`;', [], Article::class);
-
-    //     $this->view->renderHtml('main/main.php', ['articles' => $articles]);
-    // }
 
     public function __construct()
     {
@@ -31,7 +17,8 @@ class MainController
 
     public function main()
     {
-        $articles = Article::findAll();
-        $this->view->renderHtml('main/main.php', ['articles' => $articles]);
+        $users = User::findAll();
+        $cards = Card::findAll();
+        $this->view->renderHtml('main/main.php', ['user' => $users[0], 'cards' => $cards]);
     }
 }
