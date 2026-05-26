@@ -20,20 +20,17 @@ class ArticlesController
     public function __construct()
     {
         $this->view = new View(__DIR__ . '/../../../templates');
-        $this->db = new Db();
     }
 
     public function view(int $articleId)
     {
-        $result = $this->db->query('SELECT * FROM `articles` WHERE id = :id;', [':id' => $articleId], Article::class);
+        $article = Article::getById($articleId);
 
-        if ($result === []) {
+        if ($article === null) {
             $this->view->renderHtml('errors/404.php', [], 404);
             return;
-        } else {
-            $users = $this->db->query('SELECT * FROM `users` WHERE id = :id;', [':id' => $result[0]->getAuthorId()], User::class);
         }
 
-        $this->view->renderHtml('articles/view.php', ['article' => $result[0], 'users' => $users[0]]);
+        $this->view->renderHtml('articles/view.php', ['article' => $article]);
     }
 }
